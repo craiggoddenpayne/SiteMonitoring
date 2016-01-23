@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteMonitoringApi", "SiteMonitoringApi\SiteMonitoringApi.csproj", "{407E5A60-F2E6-46EA-A4FE-B3D4BD3B8217}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{72051ECF-64E8-40B1-AAEF-FD3DEFDB8BA9}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
+		PublishScripts\Publish-WebApplicationVM.ps1 = PublishScripts\Publish-WebApplicationVM.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{B6D666A4-24C7-49F1-9463-5CD9BC2DC724}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\SiteMonitoringApi-WAWS-dev.json = PublishScripts\Configurations\SiteMonitoringApi-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{407E5A60-F2E6-46EA-A4FE-B3D4BD3B8217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407E5A60-F2E6-46EA-A4FE-B3D4BD3B8217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407E5A60-F2E6-46EA-A4FE-B3D4BD3B8217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407E5A60-F2E6-46EA-A4FE-B3D4BD3B8217}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6D666A4-24C7-49F1-9463-5CD9BC2DC724} = {72051ECF-64E8-40B1-AAEF-FD3DEFDB8BA9}
+	EndGlobalSection
+EndGlobal
