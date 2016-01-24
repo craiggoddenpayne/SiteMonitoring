@@ -1,7 +1,7 @@
 {
     "environmentSettings": {
         "webSite": {
-            "name": "SitePerformance",
+            "name": "SiteMonitoringApi",
             "location": "West Europe"
         },
         "databases": [
