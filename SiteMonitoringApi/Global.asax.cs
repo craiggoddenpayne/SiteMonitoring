@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web;
+using System.Web.Http;
 
 namespace SiteMonitoringApi
 {
@@ -7,6 +9,14 @@ namespace SiteMonitoringApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            Response.Clear();
+            Response.AddHeader("Exception", exception.ToString());
+
         }
     }
 }

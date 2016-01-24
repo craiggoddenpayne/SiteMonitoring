@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
-using System.Threading;
 using System.Web.Http;
 using Newtonsoft.Json;
 using NReco.PhantomJS;
@@ -21,7 +20,7 @@ namespace SiteMonitoringApi.Controllers
             try
             {
                 phantomJs.OutputReceived += (sender, e) => { messages.Add(e.Data); };
-                phantomJs.RunScript(JsModules.NetSniff, new[] { url });
+                phantomJs.RunScript(JsModules.NetSniff, new[] {url});
                 phantomJs.ExecutionTimeout = TimeSpan.FromMilliseconds(timeout);
                 var value = messages.Aggregate("", (current, message) => current + message);
                 JsonSerializer serializer = new JsonSerializer();
@@ -33,6 +32,14 @@ namespace SiteMonitoringApi.Controllers
                     StatusCode = HttpStatusCode.OK
                 };
 
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseMessage
+                {
+                    Content = new StringContent(ex.ToString()),
+                    StatusCode = HttpStatusCode.InternalServerError
+                };
             }
             finally
             {
