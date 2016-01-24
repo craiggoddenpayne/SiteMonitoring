@@ -14,9 +14,7 @@ namespace SiteMonitoringApi
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception exception = Server.GetLastError();
-            Response.Clear();
-            Response.AddHeader("Exception", exception.ToString());
-
+            Response.Write(exception.ToString());
         }
     }
 }

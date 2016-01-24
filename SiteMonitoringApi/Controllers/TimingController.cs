@@ -15,30 +15,43 @@ namespace SiteMonitoringApi.Controllers
     {
         public HttpResponseMessage Get(string url, int timeout)
         {
-            var messages = new List<string>();
-            var phantomJs = new PhantomJS();
+            PhantomJS phantomJs = null;
             try
             {
+                var messages = new List<string>();
+                phantomJs = new PhantomJS();
                 phantomJs.OutputReceived += (sender, e) => { messages.Add(e.Data); };
-                phantomJs.RunScript(JsModules.NetSniff, new[] {url});
                 phantomJs.ExecutionTimeout = TimeSpan.FromMilliseconds(timeout);
+                phantomJs.RunScript(JsModules.NetSniff, new[] { url });
                 var value = messages.Aggregate("", (current, message) => current + message);
-                JsonSerializer serializer = new JsonSerializer();
-                var output = serializer.Deserialize(new JsonTextReader(new StringReader(value)));
-
-                return new HttpResponseMessage
+                try
                 {
-                    Content = new ObjectContent(output.GetType(), output, new JsonMediaTypeFormatter()),
-                    StatusCode = HttpStatusCode.OK
-                };
+                    JsonSerializer serializer = new JsonSerializer();
+                    var output = serializer.Deserialize(new JsonTextReader(new StringReader(value)));
+                    return new HttpResponseMessage
+                    {
+                        Content = new ObjectContent(output.GetType(), output, new JsonMediaTypeFormatter()),
+                        StatusCode = HttpStatusCode.OK
+                    };
+                }
+                catch (Exception)
+                {
+                    return new HttpResponseMessage
+                    {
+                        Content = new StringContent(value),
+                        StatusCode = HttpStatusCode.OK
+                    };
+                }
+
+                
 
             }
             catch (Exception ex)
             {
                 return new HttpResponseMessage
                 {
-                    Content = new StringContent(ex.ToString()),
-                    StatusCode = HttpStatusCode.InternalServerError
+                    Content = new StringContent(ex.Message + ex.StackTrace + (ex.InnerException ?? new Exception())),
+                    StatusCode = HttpStatusCode.OK
                 };
             }
             finally
