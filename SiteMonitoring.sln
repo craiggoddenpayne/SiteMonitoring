@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 		PublishScripts\Configurations\SiteMonitoringApi-WAWS-dev.json = PublishScripts\Configurations\SiteMonitoringApi-WAWS-dev.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteMonitoring.Contract", "SiteMonitoring.Contract\SiteMonitoring.Contract.csproj", "{78407E03-1169-4C3C-AE57-A944070BDD5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteMonitoringTestHarness", "SiteMonitoringTestHarness\SiteMonitoringTestHarness.csproj", "{B7F350D4-8356-48A6-A967-137B67B7AF14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{C8FD2222-0C23-42B4-A08B-21BED0E59566}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8FD2222-0C23-42B4-A08B-21BED0E59566}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8FD2222-0C23-42B4-A08B-21BED0E59566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78407E03-1169-4C3C-AE57-A944070BDD5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78407E03-1169-4C3C-AE57-A944070BDD5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78407E03-1169-4C3C-AE57-A944070BDD5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78407E03-1169-4C3C-AE57-A944070BDD5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F350D4-8356-48A6-A967-137B67B7AF14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F350D4-8356-48A6-A967-137B67B7AF14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F350D4-8356-48A6-A967-137B67B7AF14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F350D4-8356-48A6-A967-137B67B7AF14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

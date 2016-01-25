@@ -42,9 +42,6 @@ namespace SiteMonitoringApi.Controllers
                         StatusCode = HttpStatusCode.OK
                     };
                 }
-
-                
-
             }
             catch (Exception ex)
             {
