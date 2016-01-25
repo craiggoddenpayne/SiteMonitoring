@@ -64,9 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="V1\Data\TimingRequest.cs" />
     <Compile Include="V1\Data\TimingResponse.cs" />
+    <Compile Include="V1\Data\TimingWaterfall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="V1\Transforms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

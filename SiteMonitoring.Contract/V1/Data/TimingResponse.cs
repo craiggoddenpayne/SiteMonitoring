@@ -25,7 +25,7 @@ namespace SiteMonitoring.Contract.V1.Data
                 public string id { get; set; }
                 public string title { get; set; }
                 public PageTimings pageTimings { get; set; }
-                
+
                 public class PageTimings
                 {
                     public int onLoad { get; set; }

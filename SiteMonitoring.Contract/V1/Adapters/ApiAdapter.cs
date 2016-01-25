@@ -21,6 +21,12 @@ namespace SiteMonitoring.Contract.V1.Adapters
                 var response = await client.GetAsync(_apiUrl + "Timing?url=" + request.Url + "&timeout=" + request.Timeout.TotalMilliseconds);
                 return await response.Content.ReadAsAsync<TimingResponse>();
             }
-        } 
+        }
+
+        public async Task<TimingWaterfall> TimingAsWaterfall(TimingRequest request)
+        {
+            var timingResponse = (await Timing(request));
+            return new TimingWaterfall(timingResponse);
+        }
     }
 }
