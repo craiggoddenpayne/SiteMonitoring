@@ -8,6 +8,8 @@ namespace SiteMonitoring.Contract.V1.Data
     {
         private TimingResponse _timingResponse;
         public DateTime Start { get; set; }
+        public TimeSpan Total { get; set; }
+
         public IEnumerable<TimingResult> Results { get; set; }
 
         public class TimingResult
@@ -20,10 +22,11 @@ namespace SiteMonitoring.Contract.V1.Data
         public TimingWaterfall(TimingResponse response)
         {
             _timingResponse = response;
+            Total = TimeSpan.FromMilliseconds(response.log.pages[0].pageTimings.onLoad);
             Start = response.log.pages[0].startedDateTime;
             Results = from entry in response.log.entries
                       orderby entry.startedDateTime
-                      select new TimingWaterfall.TimingResult
+                      select new TimingResult
                       {
                           Url = entry.request.url,
                           Start = entry.startedDateTime,

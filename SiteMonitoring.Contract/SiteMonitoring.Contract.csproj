@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="V1\Adapters\ApiAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="V1\Data\TimingRequest.cs" />
+    <Compile Include="V1\Data\SiteMonitoringRequest.cs" />
     <Compile Include="V1\Data\TimingResponse.cs" />
     <Compile Include="V1\Data\TimingWaterfall.cs" />
   </ItemGroup>

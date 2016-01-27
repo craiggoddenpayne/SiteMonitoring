@@ -49,10 +49,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NReco.PhantomJS, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NReco.PhantomJS.1.0.2.0\lib\net40-Client\NReco.PhantomJS.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -87,9 +83,6 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -101,12 +94,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AppData.cs" />
+    <Compile Include="Controllers\PluginController.cs" />
+    <Compile Include="PhantomJsBehaviour.cs" />
+    <Compile Include="PhantomJsBrowser.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TimingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="JsModules.cs" />
+    <Compile Include="PhantomJsModules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +111,9 @@
       <Link>phantomjs.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Data\netlog.js" />
+    <Content Include="App_Data\netsniff.js" />
+    <Content Include="App_Data\yslow.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="phantomjs-license.txt">
@@ -130,7 +130,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\SiteMonitoring.Contract\SiteMonitoring.Contract.csproj">
+      <Project>{78407e03-1169-4c3c-ae57-a944070bdd5d}</Project>
+      <Name>SiteMonitoring.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

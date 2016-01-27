@@ -12,8 +12,11 @@ namespace SiteMonitoringApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}",
-                defaults: new { id = RouteParameter.Optional, Controller = "Test" }
-            );
+                defaults: new {id = RouteParameter.Optional, Controller = "Test", Action="Index"});
+            
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiWithAction",
+                routeTemplate: "{controller}/{action}");
         }
     }
 }

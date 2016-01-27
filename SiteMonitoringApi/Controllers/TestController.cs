@@ -6,7 +6,8 @@ namespace SiteMonitoringApi.Controllers
 {
     public class TestController : ApiController
     {
-        public HttpResponseMessage Get()
+        [HttpGet]
+        public HttpResponseMessage Index()
         {
             return new HttpResponseMessage
             {

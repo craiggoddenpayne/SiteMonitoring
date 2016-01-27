@@ -14,7 +14,7 @@ namespace SiteMonitoring.Contract.V1.Adapters
             _apiUrl = apiUrl;
         }
 
-        public async Task<TimingResponse> Timing(TimingRequest request)
+        public async Task<TimingResponse> Timing(SiteMonitoringRequest request)
         {
             using (var client = new HttpClient())
             {
@@ -23,10 +23,19 @@ namespace SiteMonitoring.Contract.V1.Adapters
             }
         }
 
-        public async Task<TimingWaterfall> TimingAsWaterfall(TimingRequest request)
+        public async Task<TimingWaterfall> TimingAsWaterfall(SiteMonitoringRequest request)
         {
             var timingResponse = (await Timing(request));
             return new TimingWaterfall(timingResponse);
+        }
+
+        public async Task<string> SpeedAnalysis(SiteMonitoringRequest request)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(_apiUrl + "SpeedAnalysis?url=" + request.Url + "&timeout=" + request.Timeout.TotalMilliseconds);
+                return await response.Content.ReadAsStringAsync();
+            }
         }
     }
 }
